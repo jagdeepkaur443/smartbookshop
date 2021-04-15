@@ -18,16 +18,6 @@ class Customer_Details(models.Model):
     def __str__(self):
         return self.customer_name
 
-class Order_details(models.Model):
-    order_id = models.AutoField(primary_key=True)
-    order_date = models.CharField(max_length=200)
-    order_quantity = models.CharField(max_length=200)
-    customer_id=models.ForeignKey(Customer_Details, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now=True)
-    
-    def __str__(self):
-        return self.order_id
-
 class Warehouse_main(models.Model):
     warehouse_id = models.IntegerField(unique=True)
     warehouse_location = models.CharField(max_length=200)
@@ -47,6 +37,16 @@ class Book(models.Model):
 
     def __str__(self):
         return self.book_name
+
+class Order_details(models.Model):
+    book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
+    order_id = models.AutoField(primary_key=True)
+    order_date = models.DateTimeField(auto_now=True)
+    order_quantity = models.CharField(max_length=200)
+    customer_name=models.ForeignKey(Customer_Details, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.order_id
 
 class Employee_details(models.Model):
     emp_id = models.IntegerField(unique=True)

@@ -19,6 +19,11 @@ from book import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('employee/', views.Employee_details_View.as_view(), name='EmployeeDetailView'),
-    path('', views.HomeView.as_view(), name='home')
+    path('employeeform/', views.Employee_details_View.as_view(), name='EmployeeDetailForm'),
+    path('', views.HomeView.as_view(), name='home'),
+    path('authorform/', views.AuthorView.as_view(), name='authorform'),
+    path('bookform/', views.BookView.as_view(), name = 'bookform'),
+    path('customerDetailsform', views.CustomerDetailsView.as_view(), name ='customerDetailsForm'),
+    path('orderDetailsform', views.OrderDetailsView.as_view(), name ='orderDetailsForm'),
+    path('warehouseMainform', views.WarehouseMainView.as_view(), name ='WarehouseMainForm'),
 ]

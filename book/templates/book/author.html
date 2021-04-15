@@ -1,0 +1,10 @@
+{% extends 'book/base.html' %}
+{% block content %}
+
+<h4>Add Author Details</h4>
+<form class="form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="button">Save</button>
+</form>
+{% endblock content %}
