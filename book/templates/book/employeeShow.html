@@ -1,0 +1,14 @@
+{% extends 'book/base.html' %}
+{% block content %}
+<h2>Employees Information</h2>
+<div class="col-md-12">
+            {% for employee in employee_details_list %}
+                <div class="card mb-4">
+                    <h4>{{ employee.emp_id }}</h4>
+                    <p class="card-text">{{ employee.emp_name }}</p>
+                    <a class="btn btn-primary" href="{% url 'update_employee' pk=employee.emp_id%}">Edit Info</a>
+                </div>
+            {% endfor %}
+        </div>
+
+{% endblock %}

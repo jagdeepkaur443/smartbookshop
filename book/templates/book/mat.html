@@ -1,0 +1,7 @@
+{% extends 'book/base.html' %}
+{% block content %}
+   {% if chart %}
+       <img src ="data:image/png;base64, {{chart|safe}}" height="550", width="850" >
+   {% endif %}
+
+{% endblock %}

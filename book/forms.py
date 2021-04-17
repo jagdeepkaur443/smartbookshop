@@ -6,6 +6,11 @@ class EmployeeForm(forms.ModelForm):
         model = Employee_details
         fields = ['emp_id', 'emp_name']
 
+class UpdateEmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee_details
+        fields = ['emp_id', 'emp_name']
+
 class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author

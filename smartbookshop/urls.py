@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from book import views
+from matplot import views as v
 
 urlpatterns = [
+    path('employee_details/edit/<pk>', views.UpdateEmployee.as_view(), name='update_employee'),
     path('admin/', admin.site.urls),
+    path('matplot/', v.home, name='matplot'),
     path('employeeform/', views.Employee_details_View.as_view(), name='EmployeeDetailForm'),
     path('', views.HomeView.as_view(), name='home'),
+    path('employeeShow/', views.EmployeeShow.as_view(), name='employeeShow'),
     path('authorform/', views.AuthorView.as_view(), name='authorform'),
     path('bookform/', views.BookView.as_view(), name = 'bookform'),
     path('customerDetailsform', views.CustomerDetailsView.as_view(), name ='customerDetailsForm'),
