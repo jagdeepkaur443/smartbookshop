@@ -99,3 +99,6 @@ def order_remove(request, pk):
     order = get_object_or_404(Order_details, pk=pk)
     order.delete()
     return redirect('/')
+
+def about(request):
+    return render(request, 'aboutus.html')

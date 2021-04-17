@@ -20,8 +20,10 @@ from matplot import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('about/', views.about, name='about'),
     path('matplot/', v.home, name='matplot'),
     path('orderGraph', v.order, name='orderGraph'),
+    path('bookGraph', v.book, name='bookGraph'),
     path('employeeform/', views.Employee_details_View.as_view(), name='EmployeeDetailForm'),
     path('', views.HomeView.as_view(), name='home'),
     path('authorform/', views.AuthorView.as_view(), name='authorform'),

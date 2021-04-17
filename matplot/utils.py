@@ -36,3 +36,15 @@ def plot2(x,y):
     plt.tight_layout()
     graph = get_graph()
     return graph
+
+def plot3(x,y):
+    plt.switch_backend('AGG')
+    plt.figure(figsize = (10,5))
+    plt.title('Year of Publishing')
+    plt.plot(x,y)
+    plt.xticks(rotation=45)
+    plt.xlabel('book_name')
+    plt.ylabel('Published year of book')
+    plt.tight_layout()
+    graph = get_graph()
+    return graph
