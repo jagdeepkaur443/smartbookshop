@@ -1,0 +1,15 @@
+{% extends 'book/base.html' %}
+{% block content %}
+<h2>Orders Made</h2>
+<div class="col-md-12">
+            {% for order in order_details_list %}
+                <div class="card mb-4">
+                    <h4>Customer Name: {{ order.customer_name }}</h4>
+                    <p class="card-text">Book Name: {{ order.book_name }}</p>
+                    <p class="">Order Quantity: {{ order.order_quantity }}</p>
+                    <a class="btn btn-primary" href="{% url 'update_order' pk=order.order_id%}">Edit Info</a>
+                </div>
+            {% endfor %}
+        </div>
+
+{% endblock %}

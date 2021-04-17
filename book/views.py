@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
-from .forms import EmployeeForm, AuthorForm, BookForm, CustomerDetailsForm, OrderDetailsForm, WarehouseMainForm, UpdateEmployeeForm
+from .forms import EmployeeForm, AuthorForm, BookForm, CustomerDetailsForm, OrderDetailsForm, WarehouseMainForm, \
+    UpdateEmployeeForm, UpdateOrderForm, UpdateWarehouseForm
 from .models import Employee_details, Book, Author, Customer_Details, Order_details, Warehouse_main
 from matplot import views
 # Create your views here.
@@ -9,7 +10,15 @@ from matplot import views
 #Views to get data from database
 class EmployeeShow(generic.ListView):
     queryset = Employee_details.objects.order_by('emp_id')
-    template_name = 'employeeShow.html'
+    template_name = 'show/employeeShow.html'
+
+class OrderShow(generic.ListView):
+    queryset = Order_details.objects.order_by('-order_date')
+    template_name = 'show/ordershow.html'
+
+class WarehouseShow(generic.ListView):
+    queryset = Warehouse_main.objects.all()
+    template_name = 'show/warehouseShow.html'
 
 class HomeView(generic.ListView):
     queryset = Book.objects.order_by('book_name')
@@ -45,13 +54,13 @@ class OrderDetailsView(generic.CreateView):
     form_class = OrderDetailsForm
     model = Order_details
     template_name = 'order.html'
-    success_url = '/'
+    success_url = 'orderShow/'
 
 class WarehouseMainView(generic.CreateView):
     form_class = WarehouseMainForm
     model = Warehouse_main
     template_name = 'warehouse.html'
-    success_url = '/'
+    success_url = 'warehouseShow/'
 
 
 # def post_remove(request, pk):
@@ -59,8 +68,22 @@ class WarehouseMainView(generic.CreateView):
 #     post.delete()
 #     return redirect('/')
 
+#update Views
+
 class UpdateEmployee(generic.UpdateView):
     form_class = UpdateEmployeeForm
     model = Employee_details
-    template_name = 'employeeUpdate.html'
+    template_name = 'update/employeeUpdate.html'
+    success_url = '/'
+
+class UpdateOrder(generic.UpdateView):
+    form_class = UpdateOrderForm
+    model = Order_details
+    template_name = 'update/orderUpdate.html'
+    success_url = '/'
+
+class UpdateWarehouse(generic.UpdateView):
+    form_class = UpdateWarehouseForm
+    model = Warehouse_main
+    template_name = 'update/warehouseUpdate.html'
     success_url = '/'

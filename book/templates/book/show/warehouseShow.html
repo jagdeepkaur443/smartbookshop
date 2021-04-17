@@ -1,0 +1,14 @@
+{% extends 'book/base.html' %}
+{% block content %}
+<h2>Our Warehouses</h2>
+<div class="col-md-12">
+            {% for warehouse in warehouse_main_list %}
+                <div class="card mb-4">
+                    <h4>Warehouse Id: {{ warehouse.warehouse_id }}</h4>
+                    <p class="">Warehouse Location: {{ warehouse.warehouse_location }}</p>
+                    <a class="btn btn-primary" href="{% url 'update_warehouse' pk=warehouse.warehouse_id%}">Edit Info</a>
+                </div>
+            {% endfor %}
+        </div>
+
+{% endblock %}

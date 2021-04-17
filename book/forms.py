@@ -1,12 +1,9 @@
 from django import forms
 from .models import Employee_details, Author, Book, Customer_Details, Order_details, Warehouse_main
 
-class EmployeeForm(forms.ModelForm):
-    class Meta:
-        model = Employee_details
-        fields = ['emp_id', 'emp_name']
 
-class UpdateEmployeeForm(forms.ModelForm):
+#CREATION FORMS
+class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee_details
         fields = ['emp_id', 'emp_name']
@@ -32,6 +29,24 @@ class OrderDetailsForm(forms.ModelForm):
         fields = ['customer_name', 'book_name', 'order_quantity', ]
                            
 class WarehouseMainForm(forms.ModelForm):
+    class Meta:
+        model = Warehouse_main
+        fields = ['warehouse_id', 'warehouse_location']
+
+
+#UPDATE FORMS
+
+class UpdateEmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee_details
+        fields = ['emp_id', 'emp_name']
+
+class UpdateOrderForm(forms.ModelForm):
+    class Meta:
+        model = Order_details
+        fields = ['book_name', 'order_quantity']
+
+class UpdateWarehouseForm(forms.ModelForm):
     class Meta:
         model = Warehouse_main
         fields = ['warehouse_id', 'warehouse_location']
