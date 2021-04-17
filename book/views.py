@@ -87,3 +87,15 @@ class UpdateWarehouse(generic.UpdateView):
     model = Warehouse_main
     template_name = 'update/warehouseUpdate.html'
     success_url = '/'
+
+#DELETE VIEWS
+
+def data_remove(request, pk):
+    employee = get_object_or_404(Employee_details, pk=pk)
+    employee.delete()
+    return redirect('/')
+
+def order_remove(request, pk):
+    order = get_object_or_404(Order_details, pk=pk)
+    order.delete()
+    return redirect('/')

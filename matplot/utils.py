@@ -17,9 +17,22 @@ def plot(x,y):
     plt.figure(figsize = (10,5))
     plt.title('total copies of the particular book')
     plt.plot(x,y)
-    # plt.xticks(rotation=45)
-    plt.xlabel('book_name')
-    plt.ylabel('no_of_copies')
+    plt.xticks(rotation=45)
+    plt.xlabel('Book Name')
+    plt.ylabel('No. of Copies')
+    plt.tight_layout()
+    graph = get_graph()
+    return graph
+
+
+def plot2(x,y):
+    plt.switch_backend('AGG')
+    plt.figure(figsize = (10,5))
+    plt.title('Order for Books and Quantity')
+    plt.plot(x,y)
+    plt.xticks(rotation=45)
+    plt.xlabel('Quantity')
+    plt.ylabel('Order_Id')
     plt.tight_layout()
     graph = get_graph()
     return graph

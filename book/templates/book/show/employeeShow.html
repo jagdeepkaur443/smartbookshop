@@ -7,6 +7,8 @@
                     <h4>{{ employee.emp_id }}</h4>
                     <p class="card-text">{{ employee.emp_name }}</p>
                     <a class="btn btn-primary" href="{% url 'update_employee' pk=employee.emp_id%}">Edit Info</a>
+                    <a class="btn btn-danger" href="{% url 'employee_remove' pk=employee.pk %}">Delete Post</a>
+
                 </div>
             {% endfor %}
         </div>

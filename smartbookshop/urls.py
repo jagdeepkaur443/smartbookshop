@@ -21,6 +21,7 @@ from matplot import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('matplot/', v.home, name='matplot'),
+    path('orderGraph', v.order, name='orderGraph'),
     path('employeeform/', views.Employee_details_View.as_view(), name='EmployeeDetailForm'),
     path('', views.HomeView.as_view(), name='home'),
     path('authorform/', views.AuthorView.as_view(), name='authorform'),
@@ -34,4 +35,6 @@ urlpatterns = [
     path('employee_details/edit/<pk>', views.UpdateEmployee.as_view(), name='update_employee'),
     path('order_details/edit/<pk>', views.UpdateOrder.as_view(), name='update_order'),
     path('warehouse_main/edit/<pk>', views.UpdateWarehouse.as_view(), name='update_warehouse'),
+    path('employee_details/<pk>/remove/', views.data_remove, name='employee_remove'),
+    path('order_details/<pk>/remove/', views.order_remove, name='order_remove'),
 ]

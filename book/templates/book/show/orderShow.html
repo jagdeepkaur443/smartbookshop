@@ -8,6 +8,7 @@
                     <p class="card-text">Book Name: {{ order.book_name }}</p>
                     <p class="">Order Quantity: {{ order.order_quantity }}</p>
                     <a class="btn btn-primary" href="{% url 'update_order' pk=order.order_id%}">Edit Info</a>
+                    <a class="btn btn-danger" href="{% url 'order_remove' pk=order.pk %}">Delete Order</a>
                 </div>
             {% endfor %}
         </div>

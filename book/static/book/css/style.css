@@ -1,0 +1,10 @@
+body{
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,114,45,1) 100%);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+}
