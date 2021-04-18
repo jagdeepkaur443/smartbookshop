@@ -1,11 +1,15 @@
 {% extends 'book/base.html' %}
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <h4>Add Employee Detail</h4>
 <form class="form" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" name="button">Save</button>
 </form>
+
+{% endif %}
 
 {% endblock content %}

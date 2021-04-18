@@ -1,0 +1,25 @@
+{% extends 'book/base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <h2>Customer Information</h2>
+    <div class="col-md-12">
+                {% for customer in customer_details_list %}
+                    <div class="card mb-4">
+                        <h4>{{ customer.customer_name }}</h4>
+                        <p class="card-text">{{ customer.customer_address }}</p>
+                        <p class="card-text">{{ customer.customer_contact_no }}</p>
+                        <a class="btn btn-primary" href="{% url 'update_customer' pk=customer.customer_id%}">Edit Info</a>
+                        <a class="btn btn-danger" href="{% url 'customer_remove' pk=customer.pk %}">Delete Customer</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+    {% else %}
+
+    <h2>Please Login First</h2>
+
+    {% endif %}
+
+{% endblock %}

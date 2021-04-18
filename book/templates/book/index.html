@@ -1,26 +1,17 @@
 {% extends 'book/base.html' %}
 {% block content %}
-<style>
-    .card mb-4.card-title.card-text text-muted h6
-    {
-    background:#B8860B;
-    }
-</style>
 
 <h2 class="text-center">Books crud app</h2>
 <div class="col-md-6">
-            <div><a href="{% url 'employeeShow' %}">Show Employees</a></div>
-            <div><a href="{% url 'orderShow' %}">Show Orders Made</a></div>
-            <div><a href="{% url 'warehouseShow' %}">Show Warehouses</a></div>
-            <div></div>
 </div>
 <div class="main-div">
     <div class="row">
         <div class="col-md-6">
             {% for book in book_list %}
             <div class="card mb-4">
-                <h2 class="card-title">{{book.book_name}}</h2>
-                <p class="card-text text-muted h6">${{ book.price }}</p>
+                <h2 class="card-title">Book: {{book.book_name}}</h2>
+                <p class="card-text">Author: {{ book.author_name }}</p>
+                <p class="card-text text-muted h6">Price: ${{ book.price }}</p>
             </div>
 
             {% endfor %}

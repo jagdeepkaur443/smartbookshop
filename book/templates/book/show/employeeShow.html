@@ -1,5 +1,8 @@
 {% extends 'book/base.html' %}
 {% block content %}
+
+{% if user.is_authenticated %}
+
 <h2>Employees Information</h2>
 <div class="col-md-12">
             {% for employee in employee_details_list %}
@@ -12,5 +15,11 @@
                 </div>
             {% endfor %}
         </div>
+
+{% else %}
+
+<h2>Please Login First</h2>
+
+{% endif %}
 
 {% endblock %}
