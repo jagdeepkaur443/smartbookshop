@@ -1,0 +1,24 @@
+{% extends 'book/base.html' %}
+{% block content %}
+
+<h2 class="text-center">You Searched for {{ searched }}</h2>
+<div class="col-md-6">
+</div>
+<div class="main-div">
+    <div class="row">
+        <div class="col-md-6">
+            {% for book in books %}
+            <div class="card mb-4">
+                <h2 class="card-title">Book: {{book.book_name}}</h2>
+                <p class="card-text">Author: {{ book.author_name }}</p>
+                <p class="card-text text-muted h6">Price: ${{ book.price }}</p>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -29,4 +29,6 @@ urlpatterns = [
     path('employee_details/<pk>/remove/', views.data_remove, name='employee_remove'),
     path('order_details/<pk>/remove/', views.order_remove, name='order_remove'),
     path('customer_details/<pk>/remove/', views.customer_remove, name='customer_remove'),
+    path('search/', views.search_book, name='search-book'),
+
 ]

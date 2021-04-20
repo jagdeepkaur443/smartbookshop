@@ -60,9 +60,9 @@
                   Graphs
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'matplot' %}">Graph1</a>
-                  <a class="dropdown-item" href="{% url 'orderGraph' %}">Graph2</a>
-                  <a class="dropdown-item" href="{% url 'bookGraph' %}">Graph3</a>
+                  <a class="dropdown-item" href="{% url 'matplot' %}">Graph showing no of copies of book</a>
+                  <a class="dropdown-item" href="{% url 'orderGraph' %}"> Graph showing quantity of books</a>
+                  <a class="dropdown-item" href="{% url 'bookGraph' %}">Graph showing year of publishing of books</a>
                 </div>
               </li>
 
@@ -83,6 +83,11 @@
             
           </ul>
         </div>
+        <form class="form-inline-responsive my-2 my-lg-0" method="POST" action="{% url 'search-book' %}" style="display: flex;">
+          {% csrf_token %}
+          <input class="form-control mr-sm-2" type="search" placeholder="Search Book" name="searched" aria-label="Search" required>
+          <button class="btn btn-secondary" type="submit">Search</button>
+        </form>
       </nav>
 
     <div class="container mt-5">

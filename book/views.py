@@ -117,3 +117,12 @@ def customer_remove(request, pk):
 
 def about(request):
     return render(request, 'aboutus.html')
+
+
+def search_book(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        books = Book.objects.filter(book_name__icontains=searched)
+        return render(request, 'show/search_book.html', {'searched': searched, 'books': books})
+    else:
+        return render(request, 'show/search_book.html')
